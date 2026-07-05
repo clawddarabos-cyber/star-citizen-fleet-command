@@ -13,6 +13,8 @@ This is not a clone of Star Trek Fleet Command. It borrows the broad genre shape
 - Claim flow that grants rewards, XP, level progress, and hull damage
 - Fleet panel with selected ship stats and repairs
 - Shipyard commissioning for heavier ships
+- Procedural 3D selected-ship theater using Three.js / React Three Fiber
+- Original low-poly placeholder silhouettes for fighter, freighter, miner, bomber, explorer, and gunship roles
 
 ## Local Dev
 
