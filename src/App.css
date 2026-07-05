@@ -189,6 +189,57 @@ button {
   line-height: 1;
 }
 
+.ship-theater {
+  position: relative;
+  height: 280px;
+  margin-inline: -24px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(8, 17, 26, 0.35), rgba(8, 17, 26, 0)),
+    #08111a;
+}
+
+.ship-theater canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.theater-readout {
+  position: absolute;
+  left: 24px;
+  bottom: 22px;
+  max-width: min(420px, calc(100% - 48px));
+  pointer-events: none;
+}
+
+.theater-readout span {
+  color: #5eead4;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.theater-readout h2 {
+  margin: 2px 0 10px;
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 1.08;
+}
+
+.theater-readout div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.theater-readout small {
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  color: #dbeafe;
+  background: rgba(255, 255, 255, 0.07);
+}
+
 .stellar-map {
   position: relative;
   min-height: 410px;
@@ -580,6 +631,11 @@ button {
 
   .main-stage {
     padding: 16px;
+  }
+
+  .ship-theater {
+    height: 240px;
+    margin-inline: -16px;
   }
 
   .stage-header {

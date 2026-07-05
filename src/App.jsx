@@ -15,6 +15,7 @@ import {
   Zap,
 } from 'lucide-react'
 import './App.css'
+import { ShipViewer } from './ShipViewer.jsx'
 
 const STARTING_RESOURCES = {
   credits: 42000,
@@ -443,6 +444,19 @@ function App() {
             <strong>{totals.power}</strong>
           </div>
         </header>
+
+        <section className="ship-theater" aria-label="Selected ship 3D viewer">
+          <ShipViewer ship={selectedShip} level={selectedFleetShip.level} hull={selectedFleetShip.hull} />
+          <div className="theater-readout">
+            <span>{selectedShip?.maker}</span>
+            <h2>{selectedShip?.name}</h2>
+            <div>
+              <small>{selectedShip?.className}</small>
+              <small>Level {selectedFleetShip.level}</small>
+              <small>Hull {selectedFleetShip.hull}%</small>
+            </div>
+          </div>
+        </section>
 
         <section className="stellar-map" aria-label="System map">
           <div className="map-grid">
