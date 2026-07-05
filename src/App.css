@@ -1,0 +1,596 @@
+.game-shell {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 260px minmax(520px, 1fr) 360px;
+  background:
+    linear-gradient(135deg, rgba(17, 24, 39, 0.96), rgba(10, 15, 24, 0.98)),
+    #101820;
+  color: #eef3f7;
+}
+
+button {
+  font: inherit;
+}
+
+.command-rail,
+.right-panels {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(7, 12, 18, 0.72);
+  backdrop-filter: blur(18px);
+}
+
+.command-rail {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon,
+.ship-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  background: #2dd4bf;
+  color: #061113;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+}
+
+.brand-lockup strong,
+.panel-heading h2,
+.stage-header h1,
+.system-card h2,
+.mission-card h3,
+.ship-row strong,
+.yard-row strong,
+.operation-row strong {
+  letter-spacing: 0;
+}
+
+.brand-lockup strong {
+  display: block;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.brand-lockup span,
+.eyebrow,
+.panel-heading span,
+.resource span,
+.fleet-score span,
+.mission-topline span,
+.metric span,
+.ship-row small,
+.yard-row small,
+.operation-row small,
+.time-left,
+.system-node em,
+.system-card span,
+.bar-row span {
+  color: #9aa8b5;
+  font-size: 12px;
+}
+
+.tab-list {
+  display: grid;
+  gap: 8px;
+}
+
+.tab-button,
+.ship-row,
+.primary-action,
+.secondary-action,
+.mini-buy,
+.claim-button,
+.system-node {
+  border: 0;
+  cursor: pointer;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: transparent;
+  color: #b7c2ce;
+  text-align: left;
+}
+
+.tab-button.active,
+.tab-button:hover {
+  background: rgba(45, 212, 191, 0.12);
+  color: #eef3f7;
+}
+
+.resource-panel,
+.panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.resource-panel {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+}
+
+.resource {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 12px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.resource strong {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.main-stage {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.stage-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.stage-header h1 {
+  max-width: 760px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 34px;
+  line-height: 1.08;
+  font-weight: 700;
+}
+
+.fleet-score {
+  min-width: 118px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(248, 113, 113, 0.12);
+  text-align: right;
+}
+
+.fleet-score strong {
+  display: block;
+  color: #fecaca;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.stellar-map {
+  position: relative;
+  min-height: 410px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 60% 35%, rgba(45, 212, 191, 0.16), transparent 34%),
+    radial-gradient(circle at 25% 70%, rgba(248, 113, 113, 0.12), transparent 28%),
+    #0d1620;
+  background-size: 42px 42px, 42px 42px, auto, auto, auto;
+}
+
+.map-grid {
+  position: absolute;
+  inset: 0;
+}
+
+.system-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 116px;
+  min-height: 76px;
+  padding: 9px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(9, 16, 25, 0.84);
+  color: #e8f2f7;
+  text-align: left;
+}
+
+.system-node.active {
+  border-color: #2dd4bf;
+  box-shadow: 0 0 0 2px rgba(45, 212, 191, 0.12);
+}
+
+.node-core {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin-bottom: 7px;
+  border-radius: 50%;
+  background: #facc15;
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.55);
+}
+
+.system-node strong,
+.system-node em {
+  display: block;
+  font-style: normal;
+}
+
+.system-card {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: min(340px, calc(100% - 40px));
+  padding: 16px;
+  border-radius: 8px;
+  background: rgba(7, 12, 18, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.system-card h2 {
+  margin: 2px 0 12px;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.slot-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.slot-row small {
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: #111827;
+  background: #a7f3d0;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.mission-card {
+  padding: 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mission-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.mission-topline strong {
+  color: #fde68a;
+  font-size: 12px;
+}
+
+.mission-card h3 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1.16;
+}
+
+.mission-card p,
+.ship-detail p,
+.empty-state,
+.log-panel li {
+  color: #bfccd6;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.mission-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.metric {
+  min-height: 62px;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.metric svg,
+.resource svg,
+.tab-button svg {
+  color: #5eead4;
+}
+
+.metric span,
+.metric strong {
+  display: block;
+}
+
+.metric strong {
+  margin-top: 3px;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.primary-action,
+.secondary-action,
+.claim-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  border-radius: 8px;
+}
+
+.primary-action {
+  width: 100%;
+  background: #2dd4bf;
+  color: #061113;
+  font-weight: 700;
+}
+
+.primary-action:hover,
+.claim-button:hover,
+.mini-buy:not(:disabled):hover {
+  filter: brightness(1.08);
+}
+
+.right-panels {
+  padding: 16px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: auto;
+}
+
+.panel {
+  padding: 14px;
+}
+
+.panel-heading {
+  margin-bottom: 12px;
+}
+
+.panel-heading h2 {
+  margin: 2px 0 0;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.ship-list,
+.operation-list,
+.yard-list {
+  display: grid;
+  gap: 8px;
+}
+
+.ship-row {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 58px;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.055);
+  color: #eef3f7;
+  text-align: left;
+}
+
+.ship-row.active {
+  outline: 2px solid rgba(45, 212, 191, 0.55);
+  background: rgba(45, 212, 191, 0.1);
+}
+
+.ship-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ship-row span:last-child {
+  min-width: 0;
+}
+
+.ship-row strong,
+.ship-row small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ship-detail {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.bars {
+  display: grid;
+  gap: 10px;
+}
+
+.bar-row > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.bar-row strong {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.bar-track,
+.timer-line {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.bar-track span,
+.timer-line span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #38bdf8;
+}
+
+.secondary-action {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.09);
+  color: #e7eef4;
+}
+
+.operation-row {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.operation-row strong,
+.operation-row small {
+  display: block;
+}
+
+.time-left {
+  color: #fde68a;
+}
+
+.claim-button {
+  background: #f59e0b;
+  color: #17110a;
+  font-weight: 800;
+}
+
+.yard-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.yard-row strong,
+.yard-row small {
+  display: block;
+}
+
+.mini-buy {
+  min-width: 54px;
+  min-height: 32px;
+  border-radius: 8px;
+  background: #93c5fd;
+  color: #08111d;
+  font-weight: 800;
+}
+
+.mini-buy:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.log-panel ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.log-panel li {
+  padding-left: 10px;
+  border-left: 2px solid #2dd4bf;
+}
+
+@media (max-width: 1180px) {
+  .game-shell {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .right-panels {
+    grid-column: 1 / -1;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 780px) {
+  .game-shell {
+    display: block;
+  }
+
+  .command-rail {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .tab-list,
+  .resource-panel,
+  .mission-grid,
+  .right-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .main-stage {
+    padding: 16px;
+  }
+
+  .stage-header {
+    display: grid;
+  }
+
+  .stage-header h1 {
+    font-size: 28px;
+  }
+
+  .stellar-map {
+    min-height: 360px;
+  }
+}
